@@ -52,7 +52,7 @@ client.on("ready", async () => {
     const text = data[1];
 
     const channel = guild.channels.cache.get(channelId);
-    channel.send(text);
+    channel.send(text.replace(/<@>/g, `<@${member.id}>`));
   };
   client.on("guildMemberAdd", (member) => {
     console.log("un mec est la");
