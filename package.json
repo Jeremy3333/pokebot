@@ -1,0 +1,23 @@
+{
+  "name": "pokebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jeremy3333/pokebot.git"
+  },
+  "author": "Tallyboy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jeremy3333/pokebot/issues"
+  },
+  "homepage": "https://github.com/Jeremy3333/pokebot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "mongoose": "^5.12.13"
+  }
+}
