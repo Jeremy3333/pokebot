@@ -3,8 +3,8 @@ const cache = {};
 const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-
 const { token } = require("./config.json");
+
 const mongo = require("./mongo");
 const welcomeSchemas = require("./schemas/welcome-schemas");
 
@@ -30,10 +30,13 @@ client.on("ready", async () => {
         readCommands(path.join(dir, file));
       } else if (file !== baseFile) {
         const option = require(path.join(__dirname, dir, file));
-        commandBase(client, option);
+        commandBase(option);
       }
     }
   };
+  readCommands("commands");
+  commandBase.listen(client);
+
   const onJoin = async (member) => {
     const { guild } = member;
     let data = cache[guild.id];
@@ -54,12 +57,9 @@ client.on("ready", async () => {
     const channel = guild.channels.cache.get(channelId);
     channel.send(text.replace(/<@>/g, `<@${member.id}>`));
   };
-  client.on("guildMemberAdd", (member) => {
-    console.log("un mec est la");
+  client.on("guildMemberAdd", async (member) => {
     onJoin(member);
   });
-
-  readCommands("commands");
 });
 
 client.login(token);
