@@ -3,7 +3,7 @@ async function scrap() {
   var json = { scp: [] };
   const scraper = require("./scrapper");
   let entry;
-  let id = 3510;
+  let id = 3463;
   var counts = 4001;
   while (counts < 5999) {
     if (`${counts}`.length == 1) {
@@ -20,7 +20,11 @@ async function scrap() {
     });
     counts++;
     entry.link = link;
-    if (entry.index != null && entry.index.startsWith("SCP-")) {
+    if (
+      entry.index != null &&
+      entry.index.startsWith("SCP-") &&
+      !(entry.index.length > 10)
+    ) {
       entry.id = id;
       id++;
       console.log(`Scrapped SCP-${numbre}`);
