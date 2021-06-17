@@ -23,7 +23,12 @@ async function collect(r, scp, msg) {
   } else {
     data = cache[e]
   }
-  data.push(scp.id)
+  console.log(data)
+  if (!data.find(element => element.toString() === scp.id.toString())){
+    data.push(scp.id)
+  } else {
+    return msg.channel.send("you already have this scp")
+  }
   await mongo().then(async mongoose => {
     try {
       await scpSchema.findOneAndUpdate({
