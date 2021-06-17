@@ -81,6 +81,9 @@ module.exports.listen = (client) => {
     // Split on any number of spaces
     const arguments = content.split(/[ ]+/)
 
+    // Create alias const
+    const alias = arguments[0].replace(prefix, "")
+
     // Remove the command which is the first index
     const name = arguments.shift().toLowerCase()
 
