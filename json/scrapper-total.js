@@ -34,7 +34,7 @@ function scrapeFrom(html) {
     // ignore children, because of headers like
     // "Special Containment Procedures" etc
     else {
-      res.procedures.push({ name: test, content: txt });
+      res.procedures.push({ name: test, value: txt });
     }
   });
   var testouille = $(".scp-image-block > img").clone();

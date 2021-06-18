@@ -15,6 +15,11 @@ async function scrap() {
       numbre = counts;
     }
     var link = `http://www.scpwiki.com/scp-${numbre}`;
+    search = "SCP-" + search;
+    let searchId = SCP.scp.find((scp) => scp.index === search);
+    if (!searchId) {
+      return message.channel.send("this scp is not found");
+    }
     await scraper(link).then((res) => {
       entry = res;
     });
