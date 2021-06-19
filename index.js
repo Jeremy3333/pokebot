@@ -45,11 +45,16 @@ client.on("ready", async () => {
       await mongo().then(async (mongoose) => {
         try {
           const result = await welcomeSchemas.findOne({ _id: guild.id });
-          cache[guild.id] = data = [result.channelId, result.text];
+          if (result) {
+            cache[guild.id] = data = [result.channelId, result.text];
+          }
         } finally {
           mongoose.connection.close();
         }
       });
+    }
+    if (!data) {
+      return;
     }
     const channelId = data[0];
     const text = data[1];
