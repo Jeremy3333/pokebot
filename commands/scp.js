@@ -160,6 +160,7 @@ module.exports = {
       .setImage(SCP.img)
       .addFields({ name: 'Object Class', value: SCP.class })
     const msg = await message.channel.send(embed)
+    await msg.react("⛓️")
 
     // Collect emoji
     const filter = () => 2 == 2;
