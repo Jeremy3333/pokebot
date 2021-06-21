@@ -88,6 +88,7 @@ async function collect(r, scp, msg) {
 }
 module.exports = {
   commands: ["scp-role", "sr"],
+  description: "Roll an scp (add a react to confine it)",
   maxArgs: 0,
   callback: async (message, arguments, text) => {
     const mongo = require("../mongo");

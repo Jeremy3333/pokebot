@@ -1,5 +1,6 @@
 module.exports = {
   commands: ["add", "addition"],
+  description: "Add two numbre together (Admin command)",
   expectedArgs: "<num1> <num2>",
   permissionError: "You need admin permission to run this command",
   minArgs: 2,

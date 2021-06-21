@@ -1,6 +1,7 @@
 module.exports = {
   commands: ["setwelcome", "sw"],
-  expectedArgs: "<message></message>",
+  description: "Set the welcome message",
+  expectedArgs: "<message>",
   permissionError: "You need admin permission to run this command",
   minArgs: 1,
   callback: async (message, arguments, text) => {

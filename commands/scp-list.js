@@ -32,6 +32,7 @@ async function list(r, msg, embedStat, f_scp, message){
 
 module.exports = {
   commands: ["scp-list", "sl"],
+  description: "Display the scp list",
   callback: async (message, arguments, text) => {
     const id = message.author.id; 
     const mongo = require("../mongo");

@@ -1,6 +1,7 @@
 const fs = require('fs');
 module.exports = {
   commands: ["scp-delete", "sd"],
+  description: "Delete an SCP from the list",
   expectedArgs: "<SCP>",
   minArgs: 1,
   maxArgs: 1,

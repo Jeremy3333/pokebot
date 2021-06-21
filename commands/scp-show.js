@@ -45,6 +45,7 @@ async function collect(r, entry, msg, embedStat, link, message) {
 }
 module.exports = {
   commands: ["scp-show", "ss"],
+  description: "Show an scp",
   expectedArgs: "<SCP>",
   minArgs: 1,
   maxArgs: 1,

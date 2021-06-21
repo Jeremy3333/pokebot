@@ -2,6 +2,7 @@ const path = require("path");
 const cache = {};
 const fs = require("fs");
 const Discord = require("discord.js");
+const commands = { commands: [] };
 const client = new Discord.Client();
 const { token } = require("./config.json");
 
@@ -31,10 +32,25 @@ client.on("ready", async () => {
       } else if (file !== baseFile) {
         const option = require(path.join(__dirname, dir, file));
         commandBase(option);
+        if (typeof option.commands === "string") {
+          commands.commands.push({
+            name: option.commands,
+            value: option.description,
+          });
+        } else {
+          commands.commands.push({
+            name: option.commands[0],
+            value: option.description,
+          });
+        }
       }
     }
   };
   readCommands("commands");
+  json = JSON.stringify(commands);
+  fs.writeFile("./json/commands.json", json, function (err) {
+    if (err) return console.log(err);
+  });
   commandBase.listen(client);
 
   const onJoin = async (member) => {
